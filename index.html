@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alister Trotman</title>
+<style>
+  body {
+    background: #ffffff;
+    color: #111111;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+  a { color: #0000ee; }
+  a:visited { color: #551a8b; }
+  nav { margin-bottom: 2rem; }
+  nav a { margin-right: 1rem; }
+  h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.2rem; }
+  hr { border: none; border-top: 1px solid #cccccc; margin: 2rem 0; }
+  section { display: none; }
+  section.visible { display: block; }
+  .entry-date { color: #555555; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<h1>Alister Trotman</h1>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#bio">Bio</a>
+  <a href="#thoughts">Thoughts</a>
+</nav>
+
+<section id="home">
+  <p>Hello. This is my corner of the web.</p>
+</section>
+
+<section id="bio">
+  <h2>Bio</h2>
+  <p>I'm Alister, based in Cardiff, Wales. I'm a postgraduate researcher in compound semiconductor manufacturing.</p>
+  <p>Outside of that I like building small, useful things.</p>
+</section>
+
+<section id="thoughts">
+  <h2>Thoughts</h2>
+  <p class="entry-date">24 August 2026</p>
+  <p>Set this page up. More soon.</p>
+  <hr>
+</section>
+
+<script>
+  function route() {
+    var hash = location.hash.replace('#', '') || 'home';
+    var sections = document.querySelectorAll('section');
+    var found = false;
+    sections.forEach(function (s) {
+      var match = s.id === hash;
+      s.classList.toggle('visible', match);
+      if (match) found = true;
+    });
+    if (!found) document.getElementById('home').classList.add('visible');
+  }
+  window.addEventListener('hashchange', route);
+  route();
+</script>
+
+</body>
+</html>
